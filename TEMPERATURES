@@ -1,0 +1,44 @@
+//ссылка на задание
+//https://www.codingame.com/training/easy/temperatures
+
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution
+{
+    static void Main(string[] args)
+    {
+        int n = int.Parse(Console.ReadLine()); // the number of temperatures to analyse
+        string[] inputs = Console.ReadLine().Split(' ');
+             
+        int[] arrayT =  new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            arrayT [i] =  int.Parse(inputs[i]);
+           // Console.WriteLine(arrayT[i]);
+        }
+        int min =  5526; 
+        for (int i = 0; i < n; i++)
+        {   
+            if (arrayT[i] >= 0 && min > arrayT[i] || arrayT[i] <= 0 && min < arrayT[i])
+            min = arrayT[i];
+            else if  (arrayT[i] < 0 && min > -arrayT[i] || arrayT[i] > 0 && min <= -arrayT[i])
+            min = arrayT[i];
+        }
+        // Write an action using Console.WriteLine()
+        // To debug: Console.Error.WriteLine("Debug messages...");
+        if (n == 0)
+            Console.WriteLine("0");
+        else 
+            Console.WriteLine(min);
+
+    }
+}
