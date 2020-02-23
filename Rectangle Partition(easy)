@@ -1,3 +1,9 @@
+// Ссылка на задание
+//https://www.codingame.com/training/easy/rectangle-partition
+
+//это задание решено на 88% (не проходит 8 test case [Process has timed out. This may mean that your solution is not optimized enough to handle some cases.])
+// мне кажется,  но  это задание должно было располагаться на уровне medium  ¯\(°_o)/¯
+
 using System;
 using System.Linq;
 using System.IO;
@@ -67,16 +73,7 @@ class Solution
                     int result = arrayY[i] - arrayY[j];
                     numbersY.Add(result);
                 }
-                
-                
-       /* for (int i = 0; i < numbersY.Count; i++)
-            {
-                int number = numbersY[i]; // Обратите внимание на использование такого же
-// синтаксиса, как и у массива
-                Console.WriteLine(number);
-            }
-            */
-            
+                            
             for(int i = 0 ; i < numbersX.Count; i++)
                 for(int j = 0 ; j < numbersY.Count; j++)
                     {
