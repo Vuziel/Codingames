@@ -1,1 +1,91 @@
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
 
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution
+{
+    static void Main(string[] args)
+    {
+        string[] inputs;
+        inputs = Console.ReadLine().Split(' ');
+        int w = int.Parse(inputs[0]);
+        int h = int.Parse(inputs[1]);
+        int countX = int.Parse(inputs[2]);
+        int countY = int.Parse(inputs[3]);
+        inputs = Console.ReadLine().Split(' ');
+        
+        int squares = 0 ;
+    
+        int[] arrayX = new int[countX+1];
+        int[] arrayY = new int[countY+1];
+           
+        for (int i = 0; i < countX; i++)
+        {
+            arrayX[i] = int.Parse(inputs[i]);
+        }
+        inputs = Console.ReadLine().Split(' ');
+         for (int i = 0; i < countY; i++)
+        {
+            arrayY[i] = int.Parse(inputs[i]);;
+        }
+        
+        arrayX[arrayX.Length - 1] = w;
+        arrayY[arrayY.Length - 1] = h;
+        
+        List<int> numbersX = new List<int>();
+        List<int> numbersY = new List<int>();
+        
+         for (int i = 0; i < countX+1; i++)
+        {
+            int number = arrayX[i];
+            numbersX.Add(number);
+        }
+        
+         for (int i = 0; i < countY+1; i++)
+        {
+            int number = arrayY[i];
+            numbersY.Add(number);
+        }
+        
+        for (int i = countX; i >= 1; i--) 
+            for (int j = i - 1; j >= 0; j--) 
+                {
+                    int result = arrayX[i] - arrayX[j];
+                    numbersX.Add(result);
+                }
+                
+         for (int i = countY; i >= 1; i--) 
+            for (int j = i - 1; j >= 0; j--) 
+                {
+                    int result = arrayY[i] - arrayY[j];
+                    numbersY.Add(result);
+                }
+                
+                
+       /* for (int i = 0; i < numbersY.Count; i++)
+            {
+                int number = numbersY[i]; // Обратите внимание на использование такого же
+// синтаксиса, как и у массива
+                Console.WriteLine(number);
+            }
+            */
+            
+            for(int i = 0 ; i < numbersX.Count; i++)
+                for(int j = 0 ; j < numbersY.Count; j++)
+                    {
+                        if(numbersX[i] == numbersY[j]) 
+                        squares++;
+                    }
+            
+        Console.WriteLine(squares);
+        // Write an action using Console.WriteLine()
+        // To debug: Console.Error.WriteLine("Debug messages...");
+    }
+}
